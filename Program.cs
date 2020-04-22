@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SWAPI_TestCs.Models;
+using System;
 
 namespace SWAPI_TestCs
 {
@@ -6,7 +7,16 @@ namespace SWAPI_TestCs
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            APIHelper.InitApiClient();
+            printPeople();
+            Console.ReadLine();
+        }
+
+        private static async void printPeople(int id = 1)
+        {
+            InfoProcessor infoProcessor = new InfoProcessor();
+            var infos = await infoProcessor.LoadInfo(id);
+            Console.WriteLine(infos.Name);
         }
     }
 }
