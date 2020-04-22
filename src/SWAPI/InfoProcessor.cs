@@ -1,28 +1,36 @@
-﻿using SWAPI_TestCs.Models;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace SWAPI_TestCs
+namespace SWAPI_TestCs.src.SWAPI
 {
     public class InfoProcessor
     {
-        public async Task<PeopleModel> LoadInfo(int ID = 1)
+ 
+        private string URL_Used;
+        public async Task<T> LoadInfo<T>(int ID) where T: class, new()
         {
-            string url = $"{APIHelper.URI}{ID}/";
 
-            using (HttpResponseMessage res = await APIHelper.ApiClient.GetAsync(url))
+            T Type = new T();
+            if (Type.GetType() == typeof(Models.PeopleModel))
+            {
+                URL_Used = $"{APIHelper.URI_People}{ID}/";
+            }
+            else if(Type.GetType() == typeof(Models.VehiclesModel))
+            {
+                URL_Used = $"{APIHelper.URI_Vehicles}{ID}/";
+            }
+
+            using (HttpResponseMessage res = await APIHelper.ApiClient.GetAsync(URL_Used))
             {
                 if (res.IsSuccessStatusCode)
                 {
-                    PeopleModel people = await res.Content.ReadAsAsync<PeopleModel>();
-                    return people;
+                    T list = await res.Content.ReadAsAsync<T>();
+                    return list;
                 }
                 else
                 {
-                    throw new Exception("Character not found"); 
+                    throw new Exception("ID not found"); 
                 }
             }
         }
