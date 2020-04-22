@@ -11,12 +11,13 @@ namespace SWAPI_TestCs.src.SWAPI
         public async Task<T> LoadInfo<T>(int ID) where T: class, new()
         {
 
-            T Type = new T();
-            if (Type.GetType() == typeof(Models.PeopleModel))
+            Type type = typeof(T);
+
+            if (type == typeof(Models.PeopleModel))
             {
                 URL_Used = $"{APIHelper.URI_People}{ID}/";
             }
-            else if(Type.GetType() == typeof(Models.VehiclesModel))
+            else if(type == typeof(Models.VehiclesModel))
             {
                 URL_Used = $"{APIHelper.URI_Vehicles}{ID}/";
             }

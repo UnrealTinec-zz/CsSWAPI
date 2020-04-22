@@ -9,8 +9,10 @@ namespace SWAPI_TestCs
         static void Main(string[] args)
         {
             APIHelper.InitApiClient();
+            //--Tests--
             PrintPeople();
             PrintVehicles();
+            //---------
             Console.ReadLine();
         }
 
