@@ -8,7 +8,7 @@ namespace SWAPI_TestCs
         static void Main(string[] args)
         {
             APIHelper.InitApiClient();
-            printPeople();
+            printPeople(0);
             Console.ReadLine();
         }
 
@@ -17,6 +17,10 @@ namespace SWAPI_TestCs
             InfoProcessor infoProcessor = new InfoProcessor();
             var infos = await infoProcessor.LoadInfo(id);
             Console.WriteLine(infos.Name);
+            for (int i = 0; i < infos.Films.Length; i++)
+            {
+                Console.WriteLine(infos.Films[i]);
+            }
         }
     }
 }

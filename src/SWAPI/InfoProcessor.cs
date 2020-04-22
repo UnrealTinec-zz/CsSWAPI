@@ -11,7 +11,7 @@ namespace SWAPI_TestCs
     {
         public async Task<PeopleModel> LoadInfo(int ID = 1)
         {
-            string url = $"{APIHelper.URI}{ID.ToString()}/";
+            string url = $"{APIHelper.URI}{ID}/";
 
             using (HttpResponseMessage res = await APIHelper.ApiClient.GetAsync(url))
             {
