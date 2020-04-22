@@ -17,6 +17,10 @@ namespace SWAPI_TestCs.Models
         public string gender { get; set; }
         public string homeworld { get; set; }
         public string[] Films { get; set; }
+        public string[] Species { get; set; }
+        public string[] Vehicles { get; set; }
+        public string[] Starships { get; set; }
+
 
     }
 }
