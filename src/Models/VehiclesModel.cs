@@ -19,13 +19,14 @@ namespace SWAPI_TestCs.src.Models
         public string Cargo_capacity { get; set; }
         public string Consumables { get; set; }
         public string Vehicle_class { get; set; }
-        public List<string> Pilots { get; set; }
-        public List<string> Films { get; set; }
-        public DateTime Created { get; set; }
-        
-        public void Test()
+        public List<string> Pilots { get; set; } //List with links
+        public List<string> Films { get; set; } //List with links
+        public DateTime Created { get; set; } //Creation of the Doc
+        public DateTime Edited { get; set; } //Edit of the Doc
+
+        public List<DateTime> ConvertToLocalTime()
         {
-            Console.WriteLine(Created.ToFileTimeUtc());
+            return new List<DateTime> { Created.ToLocalTime(), Edited.ToLocalTime() };
         }
 
     }

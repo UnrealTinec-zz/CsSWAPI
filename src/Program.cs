@@ -32,12 +32,6 @@ namespace SWAPI_TestCs
                 $"Gender: {infos.Gender}\n" +
                 $"---------------------------------\n");
 
-            /*
-            foreach (var uri in infos.Films)
-            {
-                Console.WriteLine(uri);
-            }
-            */
         }
         private static async void PrintVehicles(int id = 4)
         {
@@ -48,7 +42,18 @@ namespace SWAPI_TestCs
                 $"Name: {infos.Name}\n" +
                 $"Model: {infos.Model}\n" +
                 $"Manufacturer: {infos.Manufacturer}\n" +
-                $"--------------------------------\n");
+                $"Cost in credits: {infos.Cost_in_credits}\n" +
+                $"Lenght: {infos.Lenght}\n" +
+                $"Max atmosphering speed: {infos.Max_atmosphering_speed}\n" +
+                $"Crew: {infos.Crew}\n" +
+                $"Passengers: {infos.Passengers}\n" +
+                $"Cargo capacity: {infos.Cargo_capacity}\n" +
+                $"Consumables: {infos.Consumables}\n" +
+                $"Vehicle class: {infos.Vehicle_class}\n" +
+                $"Created: {infos.ConvertToLocalTime()[0]}\n" +
+                $"Edited: {infos.ConvertToLocalTime()[1]}\n" +
+                $"--------------------------------\n"
+                );
         }
     }
 }
