@@ -11,10 +11,10 @@ namespace SWAPI_TestCs
             APIHelper.InitApiClient();
             //--Tests--
             PrintPeople();
-            PrintVehicles();
+            PrintVehicles(24);
             //---------
             Console.ReadLine();
-        }
+        } //20.12.2014 22:30:21
 
         private static async void PrintPeople(int id = 1)
         {
@@ -30,6 +30,8 @@ namespace SWAPI_TestCs
                 $"Eye color: {infos.Eye_color}\n" +
                 $"Birth year: {infos.Birth_year}\n" +
                 $"Gender: {infos.Gender}\n" +
+                $"Created: {infos.ConvertToLocalTime()[0]}\n" +
+                $"Edited: {infos.ConvertToLocalTime()[1]}\n" +
                 $"---------------------------------\n");
 
         }

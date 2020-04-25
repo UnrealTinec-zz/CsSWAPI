@@ -6,7 +6,7 @@ namespace SWAPI_TestCs.src.Models
 {
     //Represents the Vehicles fromt the SWAPI listed under https://swapi.dev/api/vehicles/
 
-    class VehiclesModel
+    class VehiclesModel : Model
     {
         public string Name { get; set; }
         public string Model { get; set; }
@@ -21,13 +21,7 @@ namespace SWAPI_TestCs.src.Models
         public string Vehicle_class { get; set; }
         public List<string> Pilots { get; set; } //List with links
         public List<string> Films { get; set; } //List with links
-        public DateTime Created { get; set; } //Creation of the Doc
-        public DateTime Edited { get; set; } //Edit of the Doc
-
-        public List<DateTime> ConvertToLocalTime()
-        {
-            return new List<DateTime> { Created.ToLocalTime(), Edited.ToLocalTime() };
-        }
+ 
 
     }
 }
