@@ -21,6 +21,10 @@ namespace SWAPI_TestCs.src.SWAPI
             {
                 URL_Used = $"{APIHelper.URI_Vehicles}{ID}/";
             }
+            else if(type == typeof(Models.PlanetsModel))
+            {
+                URL_Used = $"{APIHelper.URI_Planets}{ID}/";
+            }
 
             using (HttpResponseMessage res = await APIHelper.ApiClient.GetAsync(URL_Used))
             {
