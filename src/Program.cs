@@ -1,4 +1,5 @@
-﻿using SWAPI_TestCs.src.Models;
+﻿using SWAPI_TestCs.src;
+using SWAPI_TestCs.src.Models;
 using SWAPI_TestCs.src.SWAPI;
 using System;
 using System.Text;
@@ -43,7 +44,16 @@ namespace SWAPI_TestCs
         {
             StringBuilder msg;
             InfoProcessor infoProcessor = new InfoProcessor();
-            var infos = await infoProcessor.LoadInfo<PeopleModel>(id);
+            PeopleModel infos;
+            try
+            {
+               infos = await infoProcessor.LoadInfo<PeopleModel>(id);
+            }
+            catch (IDnotFoundException e)
+            {
+                Console.WriteLine(e.Message);
+                return;
+            }
             msg = new StringBuilder(
                 $"-------------Character------------\n" 
                 + $"Name: {infos.Name}\n" 
@@ -68,7 +78,16 @@ namespace SWAPI_TestCs
         {
             StringBuilder msg;
             InfoProcessor infoProcessor = new InfoProcessor();
-            var infos = await infoProcessor.LoadInfo<VehiclesModel>(id);
+            VehiclesModel infos;
+            try
+            {
+                infos = await infoProcessor.LoadInfo<VehiclesModel>(id);
+            }
+            catch (IDnotFoundException e)
+            {
+                Console.WriteLine(e.Message);
+                return;
+            }
             msg = new StringBuilder($"-------------Vehicle------------\n" +
                 $"Name: {infos.Name}\n" +
                 $"Model: {infos.Model}\n" +

@@ -35,7 +35,7 @@ namespace SWAPI_TestCs.src.SWAPI
                 }
                 else
                 {
-                    throw new Exception("ID not found"); 
+                    throw new IDnotFoundException($"ID hasnt been found\nError Code: {res.StatusCode}"); 
                 }
             }
         }
